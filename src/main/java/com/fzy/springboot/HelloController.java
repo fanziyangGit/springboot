@@ -21,7 +21,7 @@ public class HelloController {
     @RequestMapping("/hello2")
     /* @ResponseBody */
     public String toIndex() {
-        final String s = "HELLO WORLD";
+        final String s = "HELLO WORLD5555";
         return "hello";
 
     }
