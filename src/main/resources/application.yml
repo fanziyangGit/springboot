@@ -1,0 +1,4 @@
+server:
+  port : 8081
+name : fanziyang
+age : 22
