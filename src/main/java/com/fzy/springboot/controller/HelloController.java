@@ -1,27 +1,26 @@
 package com.fzy.springboot.controller;
 
-import org.springframework.beans.factory.annotation.Value;
+
+import com.fzy.springboot.pojo.User;
+import com.fzy.springboot.service.UserService;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-//@Controller
+import javax.annotation.Resource;
+
+
 @RestController
+@RequestMapping(value = "/user")
 public class HelloController {
+    @Resource
+    private UserService userService;
 
-    @Value("${name}")
-    private String name;
-    /**
-     *
-     */
-    @Value("${age}")
-    private String age;
-
-    @RequestMapping("/hello")
-    /* @ResponseBody */
-    public String toIndex() {
-        final String s = "HELLO WORLD5555";
-        return "hello";
+    @RequestMapping(value = "/add", method = RequestMethod.POST,produces = {"application/json;charset=UTF-8"})
+    public int addUser(User user){
+        return userService.insert(user);
     }
 
-    ;
+    @RequestMapping(value = "/add2")
+    public String addUser2(){ return "fanziyang";}
 }
